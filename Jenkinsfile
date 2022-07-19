@@ -8,7 +8,7 @@ stage('Build Application') {
 
 steps {
 
-bat 'mvn clean install'
+sh 'mvn clean install'
 
 }
 
@@ -20,7 +20,7 @@ steps {
 
 echo 'Application in Testing Phase…'
 
-bat 'mvn test'
+sh 'mvn test'
 
 }
 
@@ -40,7 +40,7 @@ echo 'Deploying mule project due to the latest code commit…'
 
 echo 'Deploying to the configured environment….'
 
-bat 'mvn package deploy -DmuleDeploy -Dusername=awstesting1019A -Dpassword=Dallas2022@ -DworkerType=Micro -Dworkers=1 -Dregion=us-west-2'
+sh 'mvn package deploy -DmuleDeploy -Dusername=awstesting1019A -Dpassword=Dallas2022@ -DworkerType=Micro -Dworkers=1 -Dregion=us-west-2'
 
 }
 
