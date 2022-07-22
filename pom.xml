@@ -43,7 +43,7 @@
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
-				<mule.version>${mule.version}</mule.version>
+				<mule.Version>${mule.version}</mule.Version>
 				<extensions>true</extensions>
 				<configuration>
 					<cloudHubDeployment>
