@@ -7,13 +7,13 @@ pipeline {
     MULE_VERSION = '4.4.0'
     BG = 'VST'
     WORKER = 'Micro'
-    M2SETTINGS = '$HOME/opt/maven/apache-maven-3.8.6/.m2/settings.xml'
+ //   M2SETTINGS = '$HOME/opt/maven/apache-maven-3.8.6/.m2/settings.xml'
     
   }
   stages {
     stage('Build') {
       steps {
-            sh 'mvn -B -U -e -V clean -s %M2SETTINGS% -DskipTests package'
+            sh 'mvn -B -U -e -V clean -gs /var/lib/jenkins/workspace/settings.xml -DskipTests package'
       }
     }
 
@@ -29,7 +29,7 @@ pipeline {
         APP_NAME = 'MulesoftDemo-1-SB'
       }
       steps {
-            sh 'mvn -U -V -e -B -s %M2SETTINGS% -DskipTests deploy -DmuleDeploy -Dmule.version="%MULE_VERSION%" -Danypoint.username="%DEPLOY_CREDS_USR%" -Danypoint.password="%DEPLOY_CREDS_PSW%" -Dcloudhub.app="%APP_NAME%" -Dcloudhub.environment="%ENVIRONMENT%" -Dcloudhub.bg="%BG%" -Dcloudhub.worker="%WORKER%"'
+            sh 'mvn -U -V -e -B -gs /var/lib/jenkins/workspace/settings.xml -DskipTests deploy -DmuleDeploy -Dmule.version="%MULE_VERSION%" -Danypoint.username="%DEPLOY_CREDS_USR%" -Danypoint.password="%DEPLOY_CREDS_PSW%" -Dcloudhub.app="%APP_NAME%" -Dcloudhub.environment="%ENVIRONMENT%" -Dcloudhub.bg="%BG%" -Dcloudhub.worker="%WORKER%"'
       }
     }
     stage('Deploy Production') {
@@ -38,7 +38,7 @@ pipeline {
         APP_NAME = 'MulesoftDemo-1-SB-NP'
       }
       steps {
-            sh 'mvn -U -V -e -B -s %M2SETTINGS% -DskipTests deploy -DmuleDeploy -Dmule.version="%MULE_VERSION%" -Danypoint.username="%DEPLOY_CREDS_USR%" -Danypoint.password="%DEPLOY_CREDS_PSW%" -Dcloudhub.app="%APP_NAME%" -Dcloudhub.environment="%ENVIRONMENT%" -Dcloudhub.bg="%BG%" -Dcloudhub.worker="%WORKER%"'
+            sh 'mvn -U -V -e -B -gs /var/lib/jenkins/workspace/settings.xml -DskipTests deploy -DmuleDeploy -Dmule.version="%MULE_VERSION%" -Danypoint.username="%DEPLOY_CREDS_USR%" -Danypoint.password="%DEPLOY_CREDS_PSW%" -Dcloudhub.app="%APP_NAME%" -Dcloudhub.environment="%ENVIRONMENT%" -Dcloudhub.bg="%BG%" -Dcloudhub.worker="%WORKER%"'
       }
     }
   }
