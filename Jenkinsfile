@@ -30,8 +30,10 @@ stage('Deploy CloudHub') {
 
 environment {
 
-ANYPOINT_CREDENTIALS = credentials('anypointPlatform')
-
+ANYPOINT_CREDENTIALS = credentials('anypointcredentials')
+MULE_VERSION = '4.4.0'
+BG = 'VST'
+WORKER = 'Micro'
 }
 
 steps {
