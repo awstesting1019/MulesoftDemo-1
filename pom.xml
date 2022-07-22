@@ -15,7 +15,7 @@
 	<description>Demo Spring boot for Mulesoft</description>
 	<properties>
 		<java.version>1.8</java.version>
-		<mule.version>3.5.4</mule.version>
+		<mule.maven.plugin.version>3.5.2</mule.maven.plugin.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -43,7 +43,7 @@
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
-				<mule.Version>${mule.version}</mule.Version>
+				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
 					<cloudHubDeployment>
