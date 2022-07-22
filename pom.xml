@@ -11,6 +11,7 @@
 	<groupId>com.mulesoft</groupId>
 	<artifactId>demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>mule-application</packaging>
 	<name>MulesoftDemo</name>
 	<description>Demo Spring boot for Mulesoft</description>
 	<properties>
