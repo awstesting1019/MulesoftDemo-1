@@ -7,7 +7,7 @@ pipeline {
     MULE_VERSION = '4.4.0'
     BG = 'VST'
     WORKER = 'Micro'
-    M2SETTINGS = '$HOME/var/lib/jenkins/workspace/MulesoftDemo/settings.xml'
+    M2SETTINGS = 'settings.xml'
     
   }
   stages {
