@@ -7,7 +7,8 @@ pipeline {
     MULE_VERSION = '4.4.0'
     BG = 'VST'
     WORKER = 'Micro'
-    M2SETTINGS = '$HOME\.m2\settings.xml'
+    M2SETTINGS = '$HOME\opt\maven\apache-maven-3.8.6\.m2\settings.xml'
+'
   }
   stages {
     stage('Build') {
